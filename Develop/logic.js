@@ -31,6 +31,20 @@ $(document).ready(function() {
         })
     }
     rowColors();
+    $("#row-8am .description").val(localStorage.getItem("row-8am"));
+    $("#row-9am .description").val(localStorage.getItem("row-9am"));
+    $("#row-10am .description").val(localStorage.getItem("row-10am"));
+    $("#row-11am .description").val(localStorage.getItem("row-11am"));
+    $("#row-12pm .description").val(localStorage.getItem("row-12pm"));
+    $("#row-1pm .description").val(localStorage.getItem("row-1pm"));
+    $("#row-2pm .description").val(localStorage.getItem("row-2pm"));
+    $("#row-3pm .description").val(localStorage.getItem("row-3pm"));
+    $("#row-4pm .description").val(localStorage.getItem("row-4pm"));
+    $("#row-5pm .description").val(localStorage.getItem("row-5pm"));
+    $("#row-6pm .description").val(localStorage.getItem("row-6pm"));
+    $("#row-7pm .description").val(localStorage.getItem("row-7pm"));
+    $("#row-8pm .description").val(localStorage.getItem("row-8pm"));
+    $("#row-9pm .description").val(localStorage.getItem("row-9pm"));
 })
 
 
