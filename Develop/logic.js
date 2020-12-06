@@ -1,36 +1,37 @@
 $(document).ready(function() {
+    // Save Local Storage
     $("#currentDay").text(moment().format("llll"));
     $(".btn").click(function() {
-    var description = $(this).siblings(".description").val();
-    var rowId = $(this).parent().attr("id");
-    localStorage.setItem(rowId, description);
-    console.log(rowId);
-    console.log(description);
+        var description = $(this).siblings(".description").val();
+        var rowId = $(this).parent().attr("id");
+        localStorage.setItem(rowId, description);
     });
 
+    //Set row colors based on time
     function rowColors() {
         var now = moment().hours();
-        console.log(now);
+        console.log(now)
 
-        $(".time-block").each(function() {
+        $(".time-block").each(function () {
             var getTime = parseInt($(this).attr("id").split("-")[1]);
-            console.log(typeof(getTime));
+            console.log(getTime)
 
-            if (now < getTime) {
-                $(this).addClass("past");
+            if (now > getTime) {
+                $('textarea', this).addClass("past");
                 console.log("Correct");
             } else if (getTime === now) {
-                $(this).removeClass("past")
-                $(this).addClass("present");
+                $('textarea', this).removeClass("past")
+                $('textarea', this).addClass("present");
             } else {
-                $(this).removeClass("past");
-                $(this).removeClass("present");
-                $(this).addClass("future");
+                $('textarea', this).removeClass("past");
+                $('textarea', this).removeClass("present");
+                $('textarea', this).addClass("future");
             }
-            setInterval(rowColors, 1000);
-        })
+        });
     }
     rowColors();
+
+    // Retrieve local storage
     $("#row-8am .description").val(localStorage.getItem("row-8am"));
     $("#row-9am .description").val(localStorage.getItem("row-9am"));
     $("#row-10am .description").val(localStorage.getItem("row-10am"));
